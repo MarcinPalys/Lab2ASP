@@ -7,6 +7,7 @@ namespace ASPLab2.Models
     public class Birth
     {
         public DateTime dateOfBirth { get; set; }
+        public DateTime dateFuture { get; set; }
         private int _age;
         public string? name { get; set; }
         public int age
@@ -23,7 +24,7 @@ namespace ASPLab2.Models
         }
         public bool IsValid()
         {
-            if(name != null && dateOfBirth < DateTime.Now)
+            if(name != null && dateOfBirth < DateTime.Now && dateFuture > DateTime.Now)
             {
                 return true;
             }
@@ -34,8 +35,8 @@ namespace ASPLab2.Models
         }
         public int Age() 
         {
-            int a = Convert.ToInt32(DateTime.Now.Year - dateOfBirth.Year);
-            if (dateOfBirth.Month > DateTime.Now.Month) 
+            int a = Convert.ToInt32(dateFuture.Year - dateOfBirth.Year);
+            if (dateOfBirth.Month > dateFuture.Month) 
             {
                 a--;
                 return a;

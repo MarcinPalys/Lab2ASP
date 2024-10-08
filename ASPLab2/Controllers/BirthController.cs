@@ -15,7 +15,7 @@ namespace ASPLab2.Controllers
             {
                 return View(model);
             }
-            return View("Error");
+            return View("CustomError");
         }
     }
 }
